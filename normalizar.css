@@ -1,0 +1,366 @@
+body, html {
+    background: #222329;
+    height: auto;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  body {
+    display: grid;
+    grid-template-columns: 300px 4fr 1fr;
+    grid-template-rows: 100px 60px 1fr 120px;
+    grid-template-areas:
+      "header header header"
+      "nav nav nav"
+      "derecha main main"
+      "footer footer footer";
+  }
+
+  header, nav, section, aside, footer {
+    border: 2px dashed #61058D;
+    display: flex;
+    padding: 20px;
+  }
+  header { grid-area: header; }
+  nav { grid-area: nav; }
+  aside { grid-area: derecha; }
+  section { grid-area: main; }
+  footer { grid-area: footer; }
+
+  header {
+    display: flex; /* Activamos el modelo de caja flexible */
+    align-items: center; /* Alineamos los elementos verticalmente */
+    justify-content: center; /* Centramos horizontalmente */
+}
+
+h1 {
+    text-align:center;
+    font-size: 24px;
+    color: #D30500;
+  }
+  h2 {
+    text-align:center;
+    font-size: 24px;
+    color: #D38D00;
+  }
+  h1, h2 {
+    font-family: 'Roboto', sans-serif; /* Establece la fuente para h1 y h2 */
+    text-decoration: underline; /* Subraya los títulos */
+}
+
+p {
+    font-family: "Times New Roman", serif;
+}
+  nav {
+    background: linear-gradient(90deg, #410302, #9B0404, #D30500);
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.nav-bar {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    max-height: 50px; /* Ajusta el valor según el tamaño deseado */
+    max-width: 100%; /* Asegura que la imagen no se desborde del contenedor */
+}
+
+.checkbtn {
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    display: none; /* Ocultado en pantallas grandes */
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+ul li {
+    margin: 0 10px;
+}
+
+ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px; /* Ajustado el tamaño de la fuente */
+    padding: 7px 13px;
+    border-radius: 3px;
+}
+
+a.active, a:hover {
+    color: #ffffff;
+    font-weight: 100;
+    background: linear-gradient(90deg, rgba(2, 0, 2, 0.21) 40%, rgba(0, 242, 255, 0.238) 100%);
+    transition: .5s;
+    box-shadow: 1px 1px 1px 1px rgba(2, 2, 92, 0.354);
+}
+
+/* Media query para pantallas pequeñas */
+@media(max-width: 952px) {
+    ul {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #000000b6;
+        top: 80px;
+        left: -100px;
+        text-align: center;
+        transition: all .5s;
+        flex-direction: column;
+        justify-content: center;
+        display: none; /* Hide the menu by default on small screens */
+    }
+
+    ul.active {
+        left: 0;
+        display: flex; /* Display the menu when active */
+    }
+
+    ul li {
+        margin: 20px 0;
+    }
+
+    .checkbtn {
+        display: block;
+        cursor: pointer;
+    }
+}
+.galeria {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.imagenes img {
+    max-width: 100%;
+}
+
+.video {
+    position: relative; /* Cambiado de fixed a relative */
+    top: 10px;
+    left: 0; /* Ajustado a 0 para centrarlo horizontalmente */
+    margin-top: 10px; /* Ajusta la distancia desde la parte superior según tus preferencias */
+    text-align: center; /* Añadido para centrar el video horizontalmente */
+}
+.video video::-webkit-media-controls {
+    display:none !important;
+}
+
+.video video::-webkit-media-controls-panel {
+    display:none !important;
+}
+
+.video video::-webkit-media-controls-play-button {
+    display:none !important;
+}
+
+.section {
+    display: flex;
+    flex-direction: column; /* Coloca los elementos en columna */
+    align-items: center; /* Centra los elementos horizontalmente */
+    text-align: center; /* Centra el texto */
+}
+
+.video-container {
+    max-width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.texto-container {
+    max-width: 80%;
+    color: #fff;
+    margin: 20px auto; /* Modificado para tener 20px de margen arriba y abajo */
+    text-align: center; /* Centra el texto horizontalmente */
+}
+
+.texto-corridos {
+    color: white;
+    max-width: 100%;
+    margin-top: 20px;
+    text-align: justify; /* Ajusta el texto justificado */
+
+}
+
+.formulario-container {
+    background-color: #D30500;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.formulario-container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #fff;
+}
+
+.formulario-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: #fff;
+}
+
+.formulario-container input,
+.formulario-container select,
+.formulario-container textarea {
+    
+    width: calc(100% - 12px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #D30500;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.formulario-container input[type="checkbox"] {
+    width: auto;
+    margin-top: 10px;
+}
+
+.formulario-container input[type="submit"] {
+    background-color: #664400;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.formulario-container input[type="submit"]:hover {
+    background-color: #D38D00;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 50px;
+  }
+  
+  /* Estilos para las celdas */
+  td, th {
+    padding: 8px;
+    text-align: center;
+  }
+  
+  /* Estilos para las filas impares */
+  tr:nth-child(odd) {
+    background-color: #61058D;
+  }
+  table{
+    color: white;
+  }
+  
+  /* Estilos para la cabecera */
+  th {
+    background-color: #010a01;
+    color: white;
+  }
+  
+  /* Estilos para el texto en las celdas */
+  td {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  /* Añadir espacio alrededor de la tabla */
+  .section table {
+    margin: 100px 0;
+  }
+  .lista-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh; /* Ajusta la altura según tu diseño */
+}
+
+ol {
+    list-style-type: none;
+    padding: 10px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 18px; /* Tamaño de fuente para la lista */
+    background-color: #9B0400; /* Color de fondo para la lista */
+    color: #fff;
+    border-radius: 10px; /* Bordes redondeados para la lista */
+}
+
+li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 30px;
+}
+
+li::before {
+    content: "\2022"; /* Código de la viñeta (•) */
+    color: #61058D; /* Color del círculo */
+    font-size: 20px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+#geolocalizacion {
+    flex-direction: column;
+    background-color: #2F0244;
+    color: #fff;
+    padding: 70px;
+    border-radius: 10px;
+    max-width: 200px;
+    margin: 20px auto;
+}
+
+#obtenerUbicacion {
+    flex-direction: column;
+    background-color: #D38D00;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: 0px;
+    display: block;
+}
+
+
+footer {
+    background-color: #410302;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;}
+  footer div {
+    font-size: 16px; /* Tamaño del texto */
+  }
+  
+  @media (max-width: 768px) {
+    footer {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    footer div {
+        align-items: center;
+      margin-bottom: 10px;
+    }
+  }
